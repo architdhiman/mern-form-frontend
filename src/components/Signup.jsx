@@ -28,35 +28,31 @@ const Signup = () => {
 
   let name, value;
   const handleInputs = (e) => {
-    console.log(e);
+    // console.log(e);
     name = e.target.name;
     value = e.target.value;
 
     setUser({ ...user, [name]: value });
   };
 
-  useEffect(() => {
-    const data = axios.get("http://localhost:8000/contact")
-    console.warn(data);
-  }, [])
-
+  
+  
+  
   const [selectDate, setSelectedDate] = useState(null);
-  console.log(setSelectedDate);
-
+  // console.log(setSelectedDate);
+  
   const PostData =  async (e)  => {
     e.preventDefault();
     const { name, gender, email, age, joining, password } = user;
-    // console.log(user);
-    
-  //   .then(res => {
-  //     console.log(res);
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   })
-  };
+   await demo()
+    };
+  
+  const demo =async()=>{
+  const {data} =await axios.post("http://localhost:8000/register",user)
+  console.warn(data,"ssss");
+}
 
-      // // body: JSON.stringify({
+  // // body: JSON.stringify({
       //   name,gender,email,age,joining,password
       // })
 
